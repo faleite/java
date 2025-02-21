@@ -14,5 +14,13 @@ public class Aula04Operadores {
         // O resultado final é "30 Valor 1020".
         System.out.println(number01 + number02 + " Valor " + number01 + number02); // "30 Valor 1020".
         System.out.println(number01 + number02 + " Valor " + (number01 + number02)); // "30 Valor 30".
+
+        // (condicao) ? verdadeiro : falso
+        int value = 99;
+        String resultado = value > 100 ? "Maior" : "Menor"; // Menor
+        boolean isMaior100 = value > 100; // false
+
+        System.out.println("Resultado: " +resultado);
+        System.out.println("isMaior100: " +isMaior100);
     }
 }
