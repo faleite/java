@@ -27,4 +27,20 @@ public class Calculadora {
         }
         System.out.println("Nao existe divisao por zero");
     }
+
+    public void somaArray(int[] numeros){
+        int soma = 0;
+        for (int numero : numeros) {
+            soma += numero;
+        }
+        System.out.println(soma);
+    }
+
+    public void somaVarArgs(int... numeros){
+        int soma = 0;
+        for (int numero : numeros) {
+            soma += numero;
+        }
+        System.out.println(soma);
+    }
 }
