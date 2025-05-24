@@ -13,5 +13,8 @@ public class TestCarro {
         System.out.println("Modelo do carro: " + van.modelo);
 
         van.exibirAutonomia();
+        double autonomia = van.obterAutonomia();
+        System.out.println("Autonomia do carro: " + autonomia);
+        System.out.println("Autonomia do carro: " + van.obterAutonomia());
     }
 }
