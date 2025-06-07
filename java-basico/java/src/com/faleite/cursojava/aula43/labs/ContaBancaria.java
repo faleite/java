@@ -50,7 +50,7 @@ public class ContaBancaria {
     }
 
     public String toString() {
-        String dados = "ContaBancaria\n";
+        String dados = "Conta Simples\n";
         dados += "Cliente: '" + nomeCliente + '\'' +
                 ", Numero da Conta: '" + numConta + '\'' +
                 ", saldo: " + saldo;

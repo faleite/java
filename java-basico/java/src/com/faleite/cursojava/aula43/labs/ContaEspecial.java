@@ -18,7 +18,7 @@ public class ContaEspecial extends ContaBancaria {
         this.limite = limite;
     }
 
-    public boolean sacar(double valor) {
+    /*public boolean sacar(double valor) {
         double saldoAtual = super.getSaldo();
 
         if (saldoAtual >= valor) {
@@ -32,12 +32,25 @@ public class ContaEspecial extends ContaBancaria {
             return true;
         }
         return false;
+    }*/
+
+    public boolean sacar(double valor) {
+        double saldoComLimite = super.getSaldo() + limite;
+
+        if ((saldoComLimite - valor) >= 0) {
+            super.setSaldo(super.getSaldo() - valor);
+            return true;
+        }
+        return false;
     }
 
     public String toString() {
-        String dados = super.toString();
+        String dados = "Conta Especial\n";
+        dados += "Limite: " + limite;
+        dados += ", Cliente: '" + super.getNomeCliente() + '\'' +
+                ", Numero da Conta: '" + super.getNumConta() + '\'' +
+                ", saldo: " + super.getSaldo();
 
-        dados += ", Limite: " + limite;
         return dados;
     }
 }

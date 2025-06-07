@@ -4,54 +4,43 @@ import java.util.Scanner;
 
 public class TesteContaBancaria {
 
+    private static void realizarSaque(ContaBancaria conta, double valor) {
+        if (conta.sacar(valor)) {
+            System.out.println("Saque efetuado com sucesso. Novo saldo: " + conta.getSaldo());
+        } else {
+            System.out.println("Saldo insuficiente para saque de " + valor + ", Saldo de: " + conta.getSaldo());
+        }
+    }
 
     public static void main(String[] args) {
         ContaBancaria contaBancaria = new ContaBancaria("Fabricio", "001-123");
         ContaPoupanca contaPoupanca = new ContaPoupanca("Fabricio", "001-123/500");
-        ContaEspecial contaEspecial = new ContaEspecial("Fabricio", "001-123/500");
+        ContaEspecial contaEspecial = new ContaEspecial("Fabricio", "001-127");
 
-        contaEspecial.setLimite(150);
-
+        System.out.println("---------------CONTA SIMPLES---------------------");
         contaBancaria.depositar(20.50);
-        contaPoupanca.depositar(20.50);
-        contaEspecial.depositar(20.50);
+        realizarSaque(contaBancaria, 15.25);
+        System.out.println(contaBancaria);
 
-        if (contaBancaria.sacar(15.25)) {
-            System.out.println("Saque efetuado com sucesso. Novo saldo: " + contaBancaria.getSaldo());
+
+        System.out.println("-------------CONTA POUPANÇA-----------------------");
+        contaPoupanca.depositar(50);
+        contaPoupanca.setDiaRendimento(7);
+        if (contaPoupanca.calcularNovoSaldo(0.5)){
+            System.out.println("Saldo da conta poupanca com rendimento: " + contaPoupanca.getSaldo());
         } else {
-            System.out.println("Saldo insuficiente");
+            System.out.println("Hoje não é dia de rendimento");
         }
+        System.out.println(contaPoupanca);
+        realizarSaque(contaPoupanca, 70);
 
-        if (!contaPoupanca.sacar(16.25)) {
-            System.out.println("Saque efetuado com sucesso. Novo saldo: " + contaPoupanca.getSaldo());
-        } else {
-            System.out.println("Saldo insuficiente");
-        }
-
-        if (!contaEspecial.sacar(156.25)) {
-            System.out.println("Saque efetuado com sucesso. Novo saldo: " + contaEspecial.getSaldo());
-        } else {
-            System.out.println("Saldo insuficiente");
-        }
-
-        contaPoupanca.setDiaRendimento(0.5);
-
-        contaPoupanca.calcularNovoSaldo();
-        System.out.println("Saldo da conta poupanca com rendimento: " + contaPoupanca.getSaldo());
-
-
-        System.out.println(contaBancaria +"\n------------------------------------");
-
-        System.out.println(contaPoupanca + "\n------------------------------------");
-
+        System.out.println("-------------CONTA ESPECIAL----------------");
+        contaEspecial.setLimite(50);
+        contaEspecial.depositar(100);
+        realizarSaque(contaEspecial, 50);
+        realizarSaque(contaEspecial, 70);
+        realizarSaque(contaEspecial, 80);
         System.out.println(contaEspecial);
 
-//        public static void realizarSaque(conta) {
-//            if (contaBancaria.sacar(15.25)) {
-//                System.out.println("Saque efetuado com sucesso. Novo saldo: " + contaBancaria.getSaldo());
-//            } else {
-//            System.out.println("Saldo insuficiente");
-//            }
-//        }
     }
 }
