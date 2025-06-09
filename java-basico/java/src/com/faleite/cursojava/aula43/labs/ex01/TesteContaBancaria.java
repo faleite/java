@@ -1,6 +1,4 @@
-package com.faleite.cursojava.aula43.labs;
-
-import java.util.Scanner;
+package com.faleite.cursojava.aula43.labs.ex01;
 
 public class TesteContaBancaria {
 

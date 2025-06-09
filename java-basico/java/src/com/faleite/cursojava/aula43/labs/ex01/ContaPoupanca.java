@@ -1,4 +1,4 @@
-package com.faleite.cursojava.aula43.labs;
+package com.faleite.cursojava.aula43.labs.ex01;
 
 import java.util.Calendar;
 
