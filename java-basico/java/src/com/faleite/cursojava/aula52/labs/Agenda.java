@@ -1,22 +1,22 @@
 package com.faleite.cursojava.aula52.labs;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Agenda {
-    private int numContatos;
+    private int qtdDeContatos;
     private Contato[] contatos;
 
-    public Agenda(int numContatos) {
-        this.numContatos = numContatos;
-        this.contatos = new Contato[numContatos];
+    public Agenda() {
     }
 
-    public void adcionarContatos(Contato[] contatos){
+    public Agenda(int qtdDeContatos) {
+        this.qtdDeContatos = qtdDeContatos;
+        this.contatos = new Contato[qtdDeContatos];
+    }
+
+    public void adicionarContatos(Contato[] contatos){
         this.contatos = contatos;
     }
 
-    public boolean adcionarContato(String nome, String telefone){
+    public boolean adicionarContato(String nome, String telefone){
 
         for (int i = 0; i < this.contatos.length; i++){
             if (this.contatos[i] == null){
@@ -27,20 +27,27 @@ public class Agenda {
         return false;
     }
 
-    public void consultaContato(String nomeOrId){
+    public boolean consultaContato(String nomeOrId){
 
-        try {
-            for (Contato contato : this.contatos){
+        if (this.contatos == null) {
+            return false;
+        }
 
-                if (contato.getNome().equalsIgnoreCase(nomeOrId)
-                        || contato.getId() == Integer.parseInt(nomeOrId)){
+        for (Contato contato : this.contatos){
+            try {
+                int id = Integer.parseInt(nomeOrId);
+                if (contato != null && contato.getId() == id){
                     System.out.println(contato);
+                    return true;
+                }
+            }
+            catch (NumberFormatException e) {
+                if (contato != null && contato.getNome().equalsIgnoreCase(nomeOrId)) {
+                    System.out.println(contato);
+                    return true;
                 }
             }
         }
-        catch (Exception e){
-//            e.printStackTrace();
-            System.out.println(e.getMessage());
-        }
+        return false;
     }
 }

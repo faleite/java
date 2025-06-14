@@ -5,11 +5,17 @@ public class Contato {
     private String nome;
     private String telefone;
     private int id;
+    private static int contador;
+
+    public Contato() {
+        contador++;
+    }
 
     public Contato(String nome, String telefone) {
         this.nome = nome;
         this.telefone = telefone;
-        this.id++;
+        contador++;
+        this.id = contador;
     }
 
     public String getNome() {
@@ -29,11 +35,7 @@ public class Contato {
     }
 
     public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
+        return this.id;
     }
 
     @Override
