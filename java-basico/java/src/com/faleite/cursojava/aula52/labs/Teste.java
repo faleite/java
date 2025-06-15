@@ -55,6 +55,7 @@ public class Teste {
                         }
                         catch (AgendaCheiaException e){
                             System.out.println("Agenda cheia não foi possivel adicionar o contato de " + nome);
+                            System.out.println(agenda);
                         }
 
                         break;

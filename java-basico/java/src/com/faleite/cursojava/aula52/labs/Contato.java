@@ -2,13 +2,16 @@ package com.faleite.cursojava.aula52.labs;
 
 public class Contato {
 
+    private int id;
     private String nome;
     private String telefone;
-    private int id;
-    private static int contador;
+    //private String email;
+
+    private static int contador = 0;
 
     public Contato() {
         contador++;
+        this.id = contador;
     }
 
     public Contato(String nome, String telefone) {
@@ -41,9 +44,9 @@ public class Contato {
     @Override
     public String toString() {
         return "Contato{" +
-                "nome='" + nome + '\'' +
+                "id='" + id + '\'' +
                 ", telefone='" + telefone + '\'' +
-                ", id=" + id +
+                ", nome=" + nome +
                 '}';
     }
 }

@@ -27,6 +27,22 @@ public class Agenda {
         return false;
     }
 
+    // PROF.
+    public void adicionarContato(Contato c) throws AgendaCheiaException {
+
+        boolean cheia = true;
+        for (int i = 0; i < this.contatos.length; i++){
+            if (this.contatos[i] == null){
+                this.contatos[i] = c;
+                cheia = false;
+            }
+        }
+
+        if (cheia){
+            throw new AgendaCheiaException();
+        }
+    }
+
     public boolean consultaContato(String nomeOrId){
 
         if (this.contatos == null) {
@@ -49,5 +65,16 @@ public class Agenda {
             }
         }
         return false;
+    }
+
+    @Override
+    public String toString() {
+        String s = "";
+        for (Contato contato : this.contatos){
+            if (contato != null){
+                s += contato.toString() + "\n";
+            }
+        }
+        return s;
     }
 }

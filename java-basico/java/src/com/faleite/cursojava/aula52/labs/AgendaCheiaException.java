@@ -15,4 +15,15 @@ public class AgendaCheiaException extends Exception {
                 "Não foi possivel adicionar '" + message + '\'' +
                 '}';
     }
+
+    // Prof:
+
+    public AgendaCheiaException() {
+        super();
+    }
+
+    @Override
+    public String getMessage() {
+        return "Agenda já esta cheia";
+    }
 }

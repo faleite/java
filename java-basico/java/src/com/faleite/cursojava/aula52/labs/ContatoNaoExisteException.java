@@ -15,4 +15,9 @@ public class ContatoNaoExisteException extends Exception {
                 "contato=" + nomeOrId +
                 '}';
     }
+
+    @Override
+    public String getMessage() {
+        return "Contato " + nomeOrId + " não existe na agenda!";
+    }
 }
