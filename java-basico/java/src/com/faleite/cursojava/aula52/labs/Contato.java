@@ -5,7 +5,16 @@ public class Contato {
     private int id;
     private String nome;
     private String telefone;
-    //private String email;
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    private String email;
 
     private static int contador = 0;
 
@@ -17,6 +26,14 @@ public class Contato {
     public Contato(String nome, String telefone) {
         this.nome = nome;
         this.telefone = telefone;
+        contador++;
+        this.id = contador;
+    }
+
+    public Contato(String nome, String telefone, String email) {
+        this.nome = nome;
+        this.telefone = telefone;
+        this.email = email;
         contador++;
         this.id = contador;
     }
